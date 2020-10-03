@@ -1,0 +1,31 @@
+install virtualenv with pip
+create vitual environment
+activate virtual environment
+
+install django with pip
+start django project
+
+install postgresql
+make necessary changes in settings.py for postgresql
+install psycopg2 with pip
+
+install djangorestframework with pip
+make necessary changes in settings.py for djangorestframework
+
+install git with pip
+add .gitignore files as per requirements
+add root project folder to git init
+need to sync with github
+
+hide SECRET_KEY and database password
+
+create django models and make accessible via API endpoints
+
+install react app
+
+install redux
+install react-redux
+
+install pillow for static files
+
+npm form-data for axios image upload on API
