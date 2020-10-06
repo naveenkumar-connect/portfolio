@@ -52,7 +52,7 @@ SECRET_KEY = find_or_create_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost","192.168.1.1","127.0.0.1"]
+ALLOWED_HOSTS = ["localhost","192.168.1.1","127.0.0.1","13.233.129.164"]
 
 # Application definition
 
@@ -112,10 +112,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfoliodb',                      
-        'USER': 'naveen',
+        'USER': passwords.DB_USERNAME,
         'PASSWORD': passwords.DB_PASSWORD,
         'HOST': 'localhost',
-        'POST': '5432',
+        'PORT': '5432',
     }
 }
 
@@ -167,6 +167,7 @@ MEDIA_URL = '/media/'                           # MEDIA_URL is the reference URL
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
+       'http://localhost:8000',
        'http://localhost:3000',
 )
 
