@@ -21,8 +21,8 @@ from django.views.generic import TemplateView
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('api/admin/', admin.site.urls),
     path('api/user/', include('user.urls')),
     path('api/info/', include('work.urls')),
-    path('', views.index, name='index'),
+    path('<path:path>/', views.index, name='index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
