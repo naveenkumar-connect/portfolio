@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
+from django.core.validators import RegexValidator
 
 
 class UserProfileManager(BaseUserManager):
@@ -36,7 +37,8 @@ class UserProfileManager(BaseUserManager):
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for users in the system"""
     
-    username = models.CharField(max_length=255, primary_key=True)
+    alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed')
+    username = models.CharField(max_length=255, primary_key=True, validators= [alphanumeric])
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255, unique=True)
     
