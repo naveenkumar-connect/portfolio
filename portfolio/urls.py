@@ -25,4 +25,5 @@ urlpatterns = [
     path('api/user/', include('user.urls')),
     path('api/info/', include('work.urls')),
     path('<path:path>/', views.index, name='index'),
+    path('', views.index, name='index')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
