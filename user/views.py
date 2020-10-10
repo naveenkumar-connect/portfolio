@@ -134,3 +134,19 @@ class PasswordReset(APIView):
             
         else: 
             return Response( serializer.errors, status=status.HTTP_400_BAD_REQUEST )
+
+
+class UsernameCheckViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.UsernameCheckSerializer
+
+    def get_queryset(self):
+        username = self.kwargs['username']
+        return models.UserProfile.objects.filter(username = username)
+
+
+class EmailCheckViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.EmailCheckSerializer
+
+    def get_queryset(self):
+        email = self.kwargs['email']
+        return models.UserProfile.objects.filter(email = email)

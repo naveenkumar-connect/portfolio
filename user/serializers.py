@@ -53,3 +53,16 @@ class GetTokenSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
         
+
+class UsernameCheckSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.UserProfile
+        fields = ('username',)
+
+
+class EmailCheckSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.UserProfile
+        fields = ('email',)

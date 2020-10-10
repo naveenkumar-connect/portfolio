@@ -7,6 +7,8 @@ router.register('profile/(?P<username>[\w\-]+)', views.UserProfileViewSet, basen
 router.register('profile', views.UserProfileViewSet, basename='profilecreate')
 router.register('searchprofile', views.SearchProfileViewSet, basename='searchprofile')
 router.register('logout', views.UserLogoutViewSet)
+router.register('usernamecheck/(?P<username>[\w\-]+)', views.UsernameCheckViewSet, basename='usernamecheck')
+router.register('emailcheck/(?P<email>[\w.@+-]+)', views.EmailCheckViewSet, basename='emailcheck')
 
 urlpatterns = [
     path('login/', views.UserLoginApiView.as_view() ),

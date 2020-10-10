@@ -20,7 +20,7 @@ class Experience(viewsets.ModelViewSet):
 
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.Experience.objects.filter(username = username)
+        return models.Experience.objects.filter(username = username).order_by('-startdate')
 
 
 class Skills(viewsets.ModelViewSet):
@@ -28,7 +28,7 @@ class Skills(viewsets.ModelViewSet):
     
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.Skills.objects.filter(username = username)
+        return models.Skills.objects.filter(username = username).order_by('-id')
 
 
 class Projects(viewsets.ModelViewSet):
@@ -36,7 +36,7 @@ class Projects(viewsets.ModelViewSet):
     
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.Projects.objects.filter(username = username)
+        return models.Projects.objects.filter(username = username).order_by('-id')
 
 
 class Education(viewsets.ModelViewSet):
@@ -44,7 +44,7 @@ class Education(viewsets.ModelViewSet):
     
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.Education.objects.filter(username = username)    
+        return models.Education.objects.filter(username = username) .order_by('-startdate')   
 
 
 class PersonalSkills(viewsets.ModelViewSet):
@@ -52,7 +52,7 @@ class PersonalSkills(viewsets.ModelViewSet):
     
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.PersonalSkills.objects.filter(username = username) 
+        return models.PersonalSkills.objects.filter(username = username).order_by('-id')
 
 
 class Achievements(viewsets.ModelViewSet):
@@ -60,7 +60,7 @@ class Achievements(viewsets.ModelViewSet):
     
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.Achievements.objects.filter(username = username) 
+        return models.Achievements.objects.filter(username = username).order_by('-date')
 
 
 class LanguagesKnown(viewsets.ModelViewSet):
@@ -68,7 +68,7 @@ class LanguagesKnown(viewsets.ModelViewSet):
     
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.LanguagesKnown.objects.filter(username = username) 
+        return models.LanguagesKnown.objects.filter(username = username).order_by('-id')
 
 
 class Interests(viewsets.ModelViewSet):
@@ -76,7 +76,7 @@ class Interests(viewsets.ModelViewSet):
     
     def get_queryset(self):
         username = self.kwargs['username']
-        return models.Interests.objects.filter(username = username) 
+        return models.Interests.objects.filter(username = username).order_by('-id')
 
 
 class Cards(viewsets.ModelViewSet):
