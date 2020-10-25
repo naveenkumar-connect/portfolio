@@ -1,8 +1,13 @@
+"""
+creates models for work app
+"""
+
 from datetime import date
 from django.db import models
 
 
 class Details(models.Model):
+    """Database model for users details in the system"""
     profilePic = models.ImageField(upload_to='images/', blank=True, null=True)
     profilePicPresent = models.BooleanField(default=False);
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
@@ -16,6 +21,7 @@ class Details(models.Model):
 
 
 class Experience(models.Model):
+    """Database model for users experience in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     company = models.CharField(max_length=30,default="")
     profile = models.CharField(max_length=50,default="")
@@ -25,6 +31,7 @@ class Experience(models.Model):
     
 
 class Skills(models.Model):
+    """Database model for users skills in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     LEVELS = (
         ('Advanced','Advanced'),
@@ -36,12 +43,14 @@ class Skills(models.Model):
 
 
 class Projects(models.Model):
+    """Database model for users projects in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     title = models.CharField(max_length=50,default="")
     description = models.CharField(max_length=100,default="")
 
 
 class Education(models.Model):
+    """Database model for users education in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     course = models.CharField(max_length=20,default="")
     institution = models.CharField(max_length=50,default="")
@@ -51,17 +60,20 @@ class Education(models.Model):
 
 
 class PersonalSkills(models.Model):
+    """Database model for users personal skills in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     skill = models.CharField(max_length=20,default="")
     
 
 class Achievements(models.Model):
+    """Database model for users achievements in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     description = models.CharField(max_length=50,default="")
     date = models.DateField(default=date.today)
 
 
 class LanguagesKnown(models.Model):
+    """Database model for users languages known in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     language = models.CharField(max_length=20,default="")
     LEVELS = (
@@ -74,11 +86,13 @@ class LanguagesKnown(models.Model):
 
 
 class Interests(models.Model):
+    """Database model for users interests in the system"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     interest = models.CharField(max_length=20,default="")
 
 
 class Cards(models.Model):
+    """Database model to keep a track of users selected cards"""
     username = models.ForeignKey('user.UserProfile', on_delete=models.CASCADE)
     experience = models.BooleanField(default=False)
     projects = models.BooleanField(default=False)

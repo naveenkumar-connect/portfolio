@@ -1,3 +1,7 @@
+"""
+defines url scheme for user app
+"""
+
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from . import views
@@ -15,5 +19,3 @@ urlpatterns = [
     path('passwordreset/', views.PasswordReset.as_view()),
     path('', include(router.urls) )
 ]
-
-#http://127.0.0.1:8000/api/user/profile/naveen/?search=naveen

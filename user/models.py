@@ -1,10 +1,14 @@
+"""
+creates models for custom user model and custom user profile manager
+"""
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.core.validators import RegexValidator
 
-
+#manages custom user model
 class UserProfileManager(BaseUserManager):
     """Manager for user profiles"""
     
@@ -34,6 +38,7 @@ class UserProfileManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+#custom user model
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for users in the system"""
     

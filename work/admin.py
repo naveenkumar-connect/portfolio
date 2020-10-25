@@ -1,3 +1,7 @@
+"""
+registers work app models to django admin 
+"""
+
 from django.contrib import admin
 from . import models
 
